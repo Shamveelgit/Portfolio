@@ -11,7 +11,7 @@ export default function Connect(props) {
 
   const {pageNav,setPageNav} = props
 
-  const [isVisible,connectRef,onceVisible] = useInterSectionObserver({threshold : 0.5})
+  const [isVisible,connectRef,onceVisible] = useInterSectionObserver({threshold : 1})
 
   useEffect(() => {
       
