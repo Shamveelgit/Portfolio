@@ -18,9 +18,16 @@ export const useInterSectionObserver = (options) => {
             })
         },options);
         
-        if(targetRef.current) {
-            observer.observe(targetRef.current)
+        const currentRef = targetRef.current;
+        if (currentRef) {
+            observer.observe(currentRef);
         }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
 
         
     },[options])

@@ -64,4 +64,4 @@ const Skill_items = [
   )
 }
 
-export default React.memo(Skills)
+export default Skills
