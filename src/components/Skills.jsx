@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import image from "../assets/OFFICAL-1.svg"
 import pcIcon from "../../icons/pc.svg"
 import reactIcon from "../../icons/reactjs.svg"
@@ -27,31 +27,33 @@ const Skill_items = [
 
 ]
 
-export default function Skills(props) {
+     function Skills(props) {
 
     const {pageNav,setPageNav} = props
+    const [isVisible,skillsRef,onceVisible] = useInterSectionObserver({threshold : 1})
 
-    const [isVisible,skillsRef] = useInterSectionObserver({threshold : 1})
-
-    if(isVisible) {
-    setPageNav("skills")
+    useEffect(() => {
+        
+        if(isVisible) {
+            setPageNav("skills")
   }
+    },[pageNav,isVisible,onceVisible,setPageNav])
 
 
   return (
     <div ref={skillsRef} id='skills' className=' w-full max-md:mt-12'>
         <h1 className=' text-justify font-poppins ml-20 max-md:ml-8 text-2xl text-blue-700 font-bold drop-shadow-blueShadow'>What i do ?</h1>
-        <section className=' mt-16  flex items-start justify-evenly flex-wrap'>
+        <section className={`${onceVisible ? "flex" : "hidden"} mt-16  items-start justify-evenly flex-wrap`}>
             {
                 Skill_items.map((items,index) => {
                     return (
-                    <div key={index} id='columns' className="col flex items-center flex-col w-3/12 max-sm:w-3/4 *:capitalize m-6">
+                    <div key={index} id='columns' className="col animate-leftToRight flex items-center flex-col w-3/12 max-sm:w-3/4 *:capitalize m-6">
                         <div className=' select-none flex align-middle justify-center mb-4'> 
                             <img src={items.images} className=' w-24' alt="" />
                         </div>
                         <div id='text-div' className=' text-left font-poppins'>
                             <h4 className='text-lg font-semibold'>{items.title}</h4>
-                            <p className=' text-xs '>{items.text}</p>
+                            <p className=' animate-[upToDown_1s_ease-out_forwards_.5s] opacity-0 text-xs '>{items.text}</p>
                         </div>
                     </div>
                 )
@@ -61,3 +63,5 @@ export default function Skills(props) {
     </div>
   )
 }
+
+export default React.memo(Skills)

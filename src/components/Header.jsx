@@ -4,8 +4,7 @@ import { useInterSectionObserver } from '../Hooks/observer';
 
 export default function Header(props) {
 
-  const [isVisible,headRef] = useInterSectionObserver({threshold:1},)
-  const {pageNav,setPageNav} = props
+  const {pageNav} = props
 
   const navItems = [
     { name: 'home', href: '#home',   className : pageNav == "home" ? "text-black after:w-full" : '' },
@@ -14,7 +13,7 @@ export default function Header(props) {
   ];
 
   return (
-    <div ref={headRef} className={` opacity-0 select-none sticky md:fixed  font-poppins min-w-full  top-0 justify-center left-0 z-10 bg-transparent backdrop-blur-lg ${isVisible ? "animate-upToDown" : ''}`}>
+    <div className={` opacity-0 select-none sticky md:fixed  font-poppins min-w-full  top-0 justify-center left-0 z-10 bg-transparent backdrop-blur-lg animate-[upToDown_1s_ease_forwards]`}>
       <header className='header flex justify-between pr-14 pl-10 p-5 items-center h-34 w-full max-md:border-solid max-md:border-4'>
       <div className='logo'>
         {assets.headerLogo}
@@ -30,7 +29,8 @@ export default function Header(props) {
           ))}
         </ul>
         <div className='flex items-center justify-center'>
-          <button className=' hover:bg-blue-700 hover:text-white shadow-whiteshadow bg-blue-600 rounded-full w-28 h-10 text-slate-100'>Connect</button>
+          <a href="#connect"><button onClick={() => {
+          }} className=' hover:bg-blue-700 hover:text-white shadow-whiteshadow bg-blue-600 rounded-full w-28 h-10 text-slate-100'>Connect</button></a>
         </div>
       </nav>
     </header>

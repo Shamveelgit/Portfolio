@@ -3,11 +3,9 @@ import './App.css'
 import Header from './components/Header.jsx'
 import Home from './components/Home.jsx'
 import Skills from './components/Skills.jsx'
-import About from './components/About.jsx'
 import { root } from 'postcss'
-import { useInterSectionObserver } from './Hooks/observer.js'
-
-
+import About from './components/About.jsx'
+import Connect from './components/Connect.jsx'
 
 function App() {
 
@@ -20,6 +18,7 @@ function App() {
       <Home pageNav={navlink} setPageNav={setNavlink} />
       <Skills pageNav={navlink} setPageNav={setNavlink} />
       <About  pageNav={navlink} setPageNav={setNavlink}/>
+      <Connect pageNav={navlink} setPageNav={setNavlink} />
     </>
   )
 }

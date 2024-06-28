@@ -36,15 +36,48 @@ export default {
         whiteshadow : "0 0 3px 0 rgb(255, 255, 255)"
       },
       animation :  {
-        upToDown : "upToDown 1s ease forwards  ",
-        leftToRight : "ltr 1s ease"
+        upToDown : "upToDown 1s ease forwards .3s",
+        leftToRight : "ltr 1s ease forwards", 
+        downToUp : "dtu 1s ease forwards .3s"
+
       },
+      animatonDelay : {
+        0 : "0s" ,
+        0.2 : "0.2s",
+        0.5 : "0.5s",
+        0.7 : "0.7s",
+        1 : "1s"
+      },
+
       keyframes : {
         upToDown : {
           '0%' : {transform : 'translateY(-25%)',opacity : '0'},
           '100%' : {transform : 'translateY(0%)',opacity : '1 '}
+        },
+        ltr : {
+          '0%' : {transform : 'translateX(-25%)',opacity : '0'},
+          '100%' : {transform : 'translateY(0%)',opacity : '1 '}
+        },
+        dtu : {
+          '0%' : {transform : 'translateY(25%)',opacity : '0'},
+          '100%' : {transform : 'translateY(0%)',opacity : '1 '}
+        },
+        dtu1 : {
+          '0%' : {transform : 'translateY(25%)',opacity : '0'},
+          '100%' : {transform : 'translateY(-2rem)',opacity : '1 '}
+        },
+        popRight : {
+          "0%" : {
+            transform : 'translateX(-5.906rem)',
+            opacity : 0.5
+          },
+          '100%' : {
+            transform : 'translateX(0%)',
+            opacity : 1
+          }
         }
-      }
+
+      },
       
     },
   },
