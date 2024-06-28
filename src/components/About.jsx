@@ -10,7 +10,6 @@ import assets from '../assets/assets';
 export default function About(props) {
   const { pageNav, setPageNav } = props;
   const [isVisible, aboutRef, onceVisible] = useInterSectionObserver({ threshold: 0.5 });
-  console.log(isVisible);
 
   useEffect(() => {
     if (isVisible) {
