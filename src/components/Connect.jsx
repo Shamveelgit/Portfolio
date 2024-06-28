@@ -11,14 +11,14 @@ export default function Connect(props) {
 
   const {pageNav,setPageNav} = props
 
-  const [isVisible,connectRef,onceVisible] = useInterSectionObserver({threshold : 1})
+  const [isVisible,connectRef,onceVisible] = useInterSectionObserver({threshold : 0.5})
 
   useEffect(() => {
-      
+
       if(isVisible) {
           setPageNav("connect")
 }
-  },[setPageNav,pageNav,isVisible])
+  },[isVisible])
 
 
 
