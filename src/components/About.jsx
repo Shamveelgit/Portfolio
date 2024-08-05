@@ -8,6 +8,7 @@ import tailwind from "../../icons/tailwind.svg";
 import assets from '../assets/assets';
 
 export default function About(props) {
+  
   const { pageNav, setPageNav } = props;
   const [isVisible, aboutRef, onceVisible] = useInterSectionObserver({ threshold: 0.5 });
 
@@ -15,6 +16,7 @@ export default function About(props) {
     if (isVisible) {
       setPageNav("about");
     }
+    
   }, [isVisible, setPageNav]);
 
   return (
